@@ -1,0 +1,35 @@
+# tye application configuration file
+# read all about it at https://github.com/dotnet/tye
+#
+# when you've given us a try, we'd love to know what you think:
+#    https://aka.ms/AA7q20u
+#
+# define global settings here
+# name: exampleapp # application name
+# registry: exampleuser # dockerhub username or container registry hostname
+
+# define multiple services here
+containerEngine: docker
+# registry: localhost:5000
+services:
+  - name: chat-server
+    project: chat-server/chat-server.csproj
+    bindings:
+      - protocol: https
+        port: 10000
+  - name: frontend
+    dockerFile: frontend/Dockerfile
+    bindings:
+      - protocol: http
+        port: 8080
+  - name: postgres
+    image: postgres
+    env:
+      - name: POSTGRES_PASSWORD
+        value: "pass@word1"
+    bindings:
+      - port: 5432
+        connectionString: Server=${host};Port=${port};User Id=postgres;Password=${env:POSTGRES_PASSWORD};
+    volumes:
+      - source: postgres-storage
+        target: /var/lib/postgresql/data
