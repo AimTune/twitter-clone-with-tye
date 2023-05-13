@@ -1,0 +1,18 @@
+syntax = "proto3";
+package chat_server_user;
+
+option csharp_namespace = "GRPCChatServerUser";
+
+
+service ChatServerUser {
+  rpc GetUser (UserRequest) returns (UserReply);
+}
+
+message UserRequest {
+  int32 id = 1;
+}
+
+message UserReply {
+  int32 id = 1;
+  string username = 2;
+}

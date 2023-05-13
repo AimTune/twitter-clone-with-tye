@@ -20,13 +20,15 @@ For more information, visit [Project Tye Repository](https://github.com/dotnet/t
 - [x] Add SignalR project example (for chat)
 - [x] Add Vue project example (with TypeScript and SignalR Client)
 - [x] Add Postgres Container
+- [x] Add gRPC example
 - [ ] Add HealthCheck
 - [ ] Add IdentityServer 4
 - [ ] Add Elastic (with Dockerfile)
 - [ ] Add Distrubited Tracing Tool (Zipkin alternatives (Jaeger))
-- [ ] Add gRPC example
 - [ ] Add Profile microservice
 - [ ] Add Tweet microservice
 - [ ] Add Hashtag microservice
 - [ ] Add Feed microservice
 - [ ] Try microfrontend
+
+You can review [REFERENCES](REFERENCES.md) for the resources I used.

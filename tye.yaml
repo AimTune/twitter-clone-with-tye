@@ -17,6 +17,11 @@ services:
     bindings:
       - protocol: https
         port: 10000
+  - name: chat-server-backend
+    project: chat-server-backend/chat-server-backend.csproj
+    bindings:
+      - protocol: https
+        port: 11000
   - name: frontend
     dockerFile: frontend/Dockerfile
     bindings:

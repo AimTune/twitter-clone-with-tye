@@ -2,7 +2,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  data() {
+  data(vm) {
     return {
       pongs: new Array<string>(),
       interval: 0
@@ -12,7 +12,6 @@ export default defineComponent({
     this.interval = window.setInterval(() => {
       this.$chatHub.invoke('Ping')
     }, 1000)
-
     this.$chatHub.on('pong', (pong) => {
       this.pongs.push(pong)
       const pongDiv = this.$refs['pongsDiv'] as HTMLElement
@@ -21,7 +20,6 @@ export default defineComponent({
   },
   unmounted() {
     window.clearInterval(this.interval)
-
     this.$chatHub.off('pong')
   }
 })
