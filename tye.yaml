@@ -16,17 +16,36 @@ services:
     project: chat-server/chat-server.csproj
     bindings:
       - protocol: https
-        port: 10000
+        port: 11000
   - name: chat-server-backend
     project: chat-server-backend/chat-server-backend.csproj
     bindings:
       - protocol: https
-        port: 11000
-  - name: frontend
-    dockerFile: frontend/Dockerfile
+        port: 12000
+  - name: auth-server
+    image: quay.io/keycloak/keycloak
+    args: start-dev
+    env:
+      - name: KC_DB
+        value: postgres
+      - name: KC_DB_URL_HOST
+        value: postgres
+      - name: KC_DB_URL_DATABASE
+        value: postgres
+      - name: KC_DB_PASSWORD
+        value: pass@word1
+      - name: KC_DB_USERNAME
+        value: postgres
+      - name: KC_DB_SCHEMA
+        value: keycloak
+      - name: KEYCLOAK_ADMIN
+        value: admin
+      - name: KEYCLOAK_ADMIN_PASSWORD
+        value: admin
     bindings:
-      - protocol: http
-        port: 8080
+      - port: 10000
+        containerPort: 8080
+        protocol: http
   - name: postgres
     image: postgres
     env:
@@ -38,3 +57,10 @@ services:
     volumes:
       - source: postgres-storage
         target: /var/lib/postgresql/data
+  - name: frontend
+    executable: cmd
+    args: "/c npm run dev"
+    workingDirectory: ./frontend/
+    bindings:
+      - port: 5173
+        protocol: http

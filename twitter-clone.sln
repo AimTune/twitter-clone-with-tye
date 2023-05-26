@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "chat-server", "chat-server\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "example-backend", "example-backend\example-backend.csproj", "{F8064DF4-A094-4852-8B7C-373DA138994B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "identity-server", "identity-server\identity-server.csproj", "{5F184BD2-F0B3-4DE4-8F19-5E5666B84061}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{F8064DF4-A094-4852-8B7C-373DA138994B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8064DF4-A094-4852-8B7C-373DA138994B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8064DF4-A094-4852-8B7C-373DA138994B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F184BD2-F0B3-4DE4-8F19-5E5666B84061}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F184BD2-F0B3-4DE4-8F19-5E5666B84061}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F184BD2-F0B3-4DE4-8F19-5E5666B84061}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F184BD2-F0B3-4DE4-8F19-5E5666B84061}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

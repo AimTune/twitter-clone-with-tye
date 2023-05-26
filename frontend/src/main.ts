@@ -7,7 +7,7 @@ import router from './router'
 
 const app = createApp(App)
 app.use(signalR, {
-  baseUrl: 'https://localhost:10000/chat'
+  baseUrl: 'https://localhost:11000/chat'
 })
 app.config.globalProperties.$chatHub.on('user', (user) => {
   window.console.log(user)
