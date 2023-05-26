@@ -21,8 +21,9 @@ For more information, visit [Project Tye Repository](https://github.com/dotnet/t
 - [x] Add Vue project example (with TypeScript and SignalR Client)
 - [x] Add Postgres Container
 - [x] Add gRPC example
+- [x] Add Keycloak (Identity Server Alternative)
+- [ ] Add Authentication and Authorization to projects (with Keycloak)
 - [ ] Add HealthCheck
-- [ ] Add IdentityServer 4
 - [ ] Add Elastic (with Dockerfile)
 - [ ] Add Distrubited Tracing Tool (Zipkin alternatives (Jaeger))
 - [ ] Add Profile microservice
