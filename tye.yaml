@@ -17,11 +17,13 @@ services:
     bindings:
       - protocol: https
         port: 11000
+        connectionString: ${protocol}://${host}:${port}
   - name: chat-server-backend
     project: chat-server-backend/chat-server-backend.csproj
     bindings:
       - protocol: https
         port: 12000
+        connectionString: ${protocol}://${host}:${port}
   - name: auth-server
     image: quay.io/keycloak/keycloak
     args: start-dev
@@ -46,6 +48,7 @@ services:
       - port: 10000
         containerPort: 8080
         protocol: http
+        connectionString: ${protocol}://${host}:${port}
   - name: postgres
     image: postgres
     env:
@@ -64,3 +67,4 @@ services:
     bindings:
       - port: 5173
         protocol: http
+        connectionString: ${protocol}://${host}:${port}
