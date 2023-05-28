@@ -22,7 +22,8 @@ For more information, visit [Project Tye Repository](https://github.com/dotnet/t
 - [x] Add Postgres Container
 - [x] Add gRPC example
 - [x] Add Keycloak (Identity Server Alternative)
-- [ ] Add Authentication and Authorization to projects (with Keycloak)
+- [x] Add Authentication and Authorization to Vue projects
+- [ ] Add Authentication and Authorization to .NET Projects
 - [ ] Add HealthCheck
 - [ ] Add Elastic (with Dockerfile)
 - [ ] Add Distrubited Tracing Tool (Zipkin alternatives (Jaeger))

@@ -17,6 +17,7 @@
   "dependencies": {
     "@microsoft/signalr": "^7.0.5",
     "@types/signalr": "^2.4.0",
+    "keycloak-js": "^21.1.1",
     "pinia": "^2.0.35",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"

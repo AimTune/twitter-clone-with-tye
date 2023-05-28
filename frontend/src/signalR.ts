@@ -9,7 +9,9 @@ interface SignalROptions {
 export default {
   install: (app: App, options: SignalROptions) => {
     app.config.globalProperties.$chatHub = new HubConnectionBuilder()
-      .withUrl(options.baseUrl)
+      .withUrl(options.baseUrl, {
+        accessTokenFactory: () => `${app.config.globalProperties.$keycloak.token}`
+      })
       .withAutomaticReconnect()
       .build()
   }

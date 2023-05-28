@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import signalR from './signalR'
+import KeyCloak from 'keycloak-js'
 import App from './App.vue'
 import router from './router'
 
@@ -11,8 +12,24 @@ app.use(signalR, {
 app.config.globalProperties.$chatHub.on('user', (user) => {
   window.console.log(user)
 })
-app.config.globalProperties.$chatHub.start()
+
+const initOptions = {
+  realm: 'master',
+  url: process.env['CONNECTIONSTRINGS__AUTH-SERVER'],
+  clientId: 'frontend'
+}
+const keycloak = new KeyCloak(initOptions)
+
+app.config.globalProperties.$keycloak = keycloak
+
 app.use(createPinia())
 app.use(router)
 
-app.mount('#app')
+keycloak
+  .init({
+    onLoad: 'login-required'
+  })
+  .then(() => {
+    app.mount('#app')
+    app.config.globalProperties.$chatHub.start()
+  })
