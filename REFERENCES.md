@@ -22,6 +22,12 @@ https://renatogolia.com/2020/11/12/developing-distributed-applications-with-tye/
 
 https://github.com/dotnet/tye/issues/873#issuecomment-779099881
 
+https://www.youtube.com/watch?v=tqV8hnWGh5w
+
 https://www.youtube.com/watch?v=Fl6-RI2JaGE
 
 https://www.youtube.com/watch?v=-GYqQRPN_jQ
+
+https://stackoverflow.com/a/62918712
+
+https://www.mshowto.org/keycloak-server-ile-apilariniza-jwt-validasyonu-nasil-ekleyebilirsiniz-bolum-2.html
