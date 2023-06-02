@@ -33,3 +33,18 @@ keycloak
     app.mount('#app')
     app.config.globalProperties.$chatHub.start()
   })
+
+keycloak.onTokenExpired = () => {
+  console.log('token expired', keycloak.token)
+  app.config.globalProperties.$chatHub.stop()
+
+  keycloak
+    .updateToken(30 * 60)
+    .then(() => {
+      console.log('successfully get a new token', keycloak.token)
+      app.config.globalProperties.$chatHub.start()
+    })
+    .catch(() => {
+      keycloak.login()
+    })
+}

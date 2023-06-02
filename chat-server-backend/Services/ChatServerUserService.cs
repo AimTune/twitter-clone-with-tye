@@ -1,7 +1,7 @@
 using Grpc.Core;
 using GRPCChatServerUser;
 using Microsoft.AspNetCore.Authorization;
-
+using System.Security.Claims;
 namespace GRPCChatServerUser.Services;
 
 #region snippet
@@ -18,7 +18,7 @@ public class ChatServerUserService : ChatServerUser.ChatServerUserBase
     {
         return Task.FromResult(new UserReply
         {
-            Id = context.GetHttpContext().User?.Claims?.FirstOrDefault(x => x.Type == "sid").Value,
+            Id = context.GetHttpContext().User?.FindFirst(ClaimTypes.NameIdentifier)?.Value,
             Username = context.GetHttpContext().User?.Claims?.FirstOrDefault(x => x.Type == "preferred_username").Value
         });
     }
