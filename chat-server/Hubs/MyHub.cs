@@ -1,6 +1,6 @@
 using System.Security.Claims;
+using Grpc.Core;
 using Grpc.Net.Client;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 
@@ -35,8 +35,15 @@ public class MyHub : Hub
 
         using var channel = GrpcChannel.ForAddress(backendUri!);
         var client = new GRPCChatServerUser.ChatServerUser.ChatServerUserClient(channel);
+
+        var headers = new Metadata();
+        headers.Add("Authorization", $"Bearer {Context.GetHttpContext()?.Request.Query["access_token"]!}");
+
+        var username = Context.User?.Claims?.FirstOrDefault(x => x.Type == "sid")!.Value;
+
+
         var reply = await client.GetUserAsync(
-                          new GRPCChatServerUser.UserRequest { Id = 1 });
+                          new GRPCChatServerUser.UserRequest { Id = username }, headers);
         await Clients.Client(Context.ConnectionId).SendAsync("user", reply);
         await Clients.Client(Context.ConnectionId).SendAsync("pong", DateTime.Now);
     }

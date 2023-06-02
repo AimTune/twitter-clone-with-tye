@@ -22,11 +22,11 @@ For more information, visit [Project Tye Repository](https://github.com/dotnet/t
 - [x] Add Postgres Container
 - [x] Add gRPC example
 - [x] Add Keycloak (Identity Server Alternative)
-- [x] Add Authentication and Authorization to Vue projects
-- [ ] Add Authentication and Authorization to .NET Projects
-- [ ] Add HealthCheck
+- [x] Add Authentication and Authorization to Vue project
+- [x] Add Authentication and Authorization to .NET Projects
 - [ ] Add Elastic (with Dockerfile)
 - [ ] Add Distrubited Tracing Tool (Zipkin alternatives (Jaeger))
+- [ ] Add HealthCheck
 - [ ] Add Profile microservice
 - [ ] Add Tweet microservice
 - [ ] Add Hashtag microservice

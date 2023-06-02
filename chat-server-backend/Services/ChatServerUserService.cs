@@ -1,9 +1,11 @@
 using Grpc.Core;
 using GRPCChatServerUser;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GRPCChatServerUser.Services;
 
 #region snippet
+[Authorize]
 public class ChatServerUserService : ChatServerUser.ChatServerUserBase
 {
     private readonly ILogger<ChatServerUserService> _logger;
@@ -16,8 +18,8 @@ public class ChatServerUserService : ChatServerUser.ChatServerUserBase
     {
         return Task.FromResult(new UserReply
         {
-            Id = 1,
-            Username = "testuser"
+            Id = context.GetHttpContext().User?.Claims?.FirstOrDefault(x => x.Type == "sid").Value,
+            Username = context.GetHttpContext().User?.Claims?.FirstOrDefault(x => x.Type == "preferred_username").Value
         });
     }
 }

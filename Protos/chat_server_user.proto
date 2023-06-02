@@ -9,10 +9,10 @@ service ChatServerUser {
 }
 
 message UserRequest {
-  int32 id = 1;
+  string id = 1;
 }
 
 message UserReply {
-  int32 id = 1;
+  string id = 1;
   string username = 2;
 }

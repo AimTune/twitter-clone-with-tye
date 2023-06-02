@@ -4,9 +4,8 @@ using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// TODO: get issuer and key from env
-var issuer = "http://localhost:10000/realms/master";
-var key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlqdJKpiBcJkm/yrLcG67h5me+FVEawVfE64STs6Azv2viFHIdDpD6Fu9c3ig2qQJPMVveBSmWU/SjYCx/cnO8c/H4fT+rU5mZVk1nj5FnEIeb9MDTruKrN7JFu9nXFBPQ5aVvV8oiAQWkNd3B9t0O9OtbLjI/QVOIFAx6TsqlwtvDSqpmeQwD6aciisFZ7ZSwALgrReIyGbPjoKW9Ioz1+e4Se5hb/xzjnqrIcS5qK7yK68tE8aqDXYPtK05KI6OQ0flVMw6cFNpYe7fq6hrfZQCSqd2d40OGrTuMmRYhEZyLD6I4jZaMXHSCI2HYSUCyMAB9VnT1qUECExMNqIiCQIDAQAB";
+var issuer = $"{builder.Configuration.GetConnectionString("auth-server")}/realms/{builder.Configuration["Keycloak:Realm"]!}";
+
 builder.Services.AddAuthentication(options =>
     {
         options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -23,7 +22,7 @@ builder.Services.AddAuthentication(options =>
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
             ValidIssuer = issuer,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key))
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Keycloak:RS256"]!))
         };
         opt.Events = new JwtBearerEvents
         {

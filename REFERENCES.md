@@ -31,3 +31,7 @@ https://www.youtube.com/watch?v=-GYqQRPN_jQ
 https://stackoverflow.com/a/62918712
 
 https://www.mshowto.org/keycloak-server-ile-apilariniza-jwt-validasyonu-nasil-ekleyebilirsiniz-bolum-2.html
+
+https://learn.microsoft.com/en-us/aspnet/core/grpc/authn-and-authz?view=aspnetcore-7.0
+
+https://learn.microsoft.com/en-us/dotnet/architecture/grpc-for-wcf-developers/call-credentials
