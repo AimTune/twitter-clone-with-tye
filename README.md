@@ -2,7 +2,7 @@
 
 Project Tye is a tool that lets you easily develop and deploy microservices applications. My purpose is to develop a Twitter clone using the tool.
 
-If you want to try this example, you must have Tye tool, .NET 7 (for C# Projects) and Docker (For other projects not developed with C#). Install [Docker](https://www.docker.com/), [.NET 7](https://dotnet.microsoft.com/en-us/download/dotnet/7.0) and [Tye](https://github.com/dotnet/tye/blob/main/docs/getting_started.md#installing-tye).
+If you want to try this example, you must have Tye tool, .NET 7 (for C# Projects) and Docker (For other projects not developed with C#). Install [Node.js 18.x+](https://nodejs.org/en), [Docker](https://www.docker.com/), [.NET 7](https://dotnet.microsoft.com/en-us/download/dotnet/7.0) and [Tye](https://github.com/dotnet/tye/blob/main/docs/getting_started.md#installing-tye).
 
 Command
 
@@ -31,6 +31,7 @@ For more information, visit [Project Tye Repository](https://github.com/dotnet/t
 - [ ] Add Tweet microservice
 - [ ] Add Hashtag microservice
 - [ ] Add Feed microservice
+- [ ] Try Dapr extension
 - [ ] Try microfrontend
 
 You can review [REFERENCES](REFERENCES.md) for the resources I used.
