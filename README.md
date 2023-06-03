@@ -24,7 +24,8 @@ For more information, visit [Project Tye Repository](https://github.com/dotnet/t
 - [x] Add Keycloak (Identity Server Alternative)
 - [x] Add Authentication and Authorization to Vue project
 - [x] Add Authentication and Authorization to .NET Projects
-- [ ] Add Elastic (with Dockerfile)
+- [x] Add Elasticsearch
+- [ ] Add Elasticsearch to .NET Projects
 - [ ] Add Distrubited Tracing Tool (Zipkin alternatives (Jaeger))
 - [ ] Add HealthCheck
 - [ ] Add Profile microservice
@@ -33,5 +34,14 @@ For more information, visit [Project Tye Repository](https://github.com/dotnet/t
 - [ ] Add Feed microservice
 - [ ] Try Dapr extension
 - [ ] Try microfrontend
+
+If you use elastic extension and get `max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]` error, you can run the following command on your docker host.
+
+```bash
+# for windows machine
+wsl -d docker-desktop
+# run inside docker host machine
+sysctl -w vm.max_map_count=262144
+```
 
 You can review [REFERENCES](REFERENCES.md) for the resources I used.

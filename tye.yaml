@@ -8,9 +8,24 @@
 # name: exampleapp # application name
 # registry: exampleuser # dockerhub username or container registry hostname
 
+ingress:
+  - name: ingress
+    bindings:
+      - port: 80
+    rules:
+      - path: /auth-server
+        service: auth-server
+      - host: websocket.tyitter.com
+        service: chat-server
+      - host: api.tyitter.com
+        service: chat-server-backend
+
 # define multiple services here
 containerEngine: docker
 # registry: localhost:5000
+extensions:
+  - name: elastic
+    logPath: ./.logs
 services:
   - name: chat-server
     project: chat-server/chat-server.csproj
